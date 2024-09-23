@@ -3,6 +3,7 @@ body {
     margin: 0;
 }
 
+/* Header */
 header {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -11,14 +12,12 @@ header {
     grid-row-gap: 0px;
     grid-row-gap: 1px;
 
-    background-color: rgba(4, 44, 82, 0.863);
-    padding: 0;
+    background-color: rgb(8, 42, 73);
+    padding: 0px 0px 10px 0px;
     margin: 0;
 
     height: auto;
     width: 100vw;
-
-    padding: 10px;
 
     color: white;
 }
@@ -29,7 +28,14 @@ header > * {
 
 #TopHeader  {
     grid-area: 1 / 1 / 2 / 3;
-    text-align: center
+    text-align: center;
+    border-bottom: solid rgba(10, 79, 134, 0.664);
+}
+
+#Navigator > a {
+    color: white;
+    text-decoration: none;
+    margin: 0px 10px 0px 10px;
 }
 
 #LeftBottomHeader {
@@ -60,4 +66,23 @@ header > * {
     grid-area: 2 / 2 / 3 / 3;
     align-content: center;
     padding-left: 20%;
+}
+
+/* Main content */
+#MainContent {
+
+}
+
+/* Footer */
+footer {
+    background-color: rgb(8, 42, 73);
+    padding: 25px;
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    text-align: center;
+    color: white;
 }
