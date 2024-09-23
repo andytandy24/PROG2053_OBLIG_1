@@ -24,7 +24,7 @@ header {
     margin: 0;
 
     height: auto;
-    width: 100vw;
+    width: 100%;
 
     color: white;
 }
@@ -79,10 +79,12 @@ header > * {
 #MainContent {
     display: flex;
     flex-direction: column;
-    
-    margin:auto;
-    width: 50%;
-    padding: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+#MainContent > * {
+    margin: 25px 0px;
 }
 
 #MainContent > h2 {
@@ -93,30 +95,49 @@ header > * {
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    margin:auto;
+    width: 50%;
+    padding: 16px;
+    margin: 16px 0px 16px 0px;
 }
 
-
 .Content > * {
-    padding: 16px;
+    padding: 15px
 }
 
 .Content > img {
     display: block;
-    background-color: grey;
+    border-radius: 15px;
+    border: solid rgb(25, 107, 231) 6px;
+
     text-align: center;
-    width: 400px;
+
+    width: 800px;
     height: 100px;
+}
+
+.Quote {
+    background-color: rgb(190, 190, 190);
+    width: 80%;
+
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+
+    font-style: italic;
+    font-size: x-large;
 }
 
 /* Footer */
 footer {
     background-color: rgb(8, 42, 73);
-    padding: 25px;
+    padding: 25px 0px;
 
-    position: fixed;
+    position: relative;
     bottom: 0;
-    right: 0;
     left: 0;
+    right: 0;
 
     text-align: center;
     color: white;
