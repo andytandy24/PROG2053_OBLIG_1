@@ -1,6 +1,13 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(Roboto/Roboto-Regular.ttf);
+}
+
+/* Body */
 body {
     padding: 0;
     margin: 0;
+    font-family: Roboto;
 }
 
 /* Header */
