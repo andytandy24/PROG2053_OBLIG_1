@@ -31,5 +31,50 @@
     <footer>
         Copyright
     </footer>
+    <script type="text/javascript">
+        let coords = [[35.6895, 139.6917], [59.9170046, 10.7275885], [60.7913318, 10.6870702], [40.6976312, -74.1444878], [34.0672632, -118.5916853]]
+        let MainContent = document.getElementById("MainContent")
+
+        function addPost() {
+            let span = document.createElement("span")
+            span.className = "ContentDCL"
+            MainContent.appendChild(span)
+
+            let title = document.createElement("h1")
+            span.appendChild(title)
+
+            let content = document.createElement("p")
+            span.appendChild(content)
+        }
+
+        function updatePost(index, data) {
+            let location = MainContent.children[index]
+            let title = location.children[0]
+            let content = location.children[1]
+
+            title.innerHTML = "Latitude: " + data.latitude + " Longitude: " + data.longitude
+            content.innerHTML = "Temperature: " + data.current_weather.temperature + data.current_weather_units.temperature + "<br>Wind: " + data.current_weather.windspeed
+
+            console.log(title.innerHTML, content.innerHTML)
+        }
+
+        function getData(index, lat, lon) {
+            let url = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lon + "&current_weather=true"
+            fetch(url)
+                .then((response) => response.json())
+                .then((json) => updatePost(index, json))
+        }
+
+        for(let i = 0; i < coords.length; i++) {
+            addPost()
+            getData(i, coords[i][0], coords[i][1])
+        }
+        
+        setInterval(() => {
+            for(let i = 0; i < MainContent.childElementCount; i++) {
+                getData(i, coords[i][0], coords[i][1])
+            }
+        }, 1000*5)
+    </script>
 </body>
 </html>
