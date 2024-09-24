@@ -26,14 +26,14 @@
             <img alt="This is a placeholder for an image">
         </div>
     </header>
-    <div id="MainContent">
+    <div id="MainContentDCL">
     </div>
     <footer>
         Copyright
     </footer>
     <script>
         var postId = 1;
-        let MainContent = document.getElementById("MainContent")
+        let MainContent = document.getElementById("MainContentDCL")
 
         function endOfPage() {
             return window.pageYOffset+window.innerHeight == document.body.scrollHeight
@@ -60,19 +60,19 @@
                 .then((json) => addPost(json))
         }
             
-        for(let i = 1; i <= 3; i++) {
+        for(let i = 0; i < 6; i++) {
             getPost(postId)
             postId++
         }
         
         setInterval(() => {
             if(endOfPage()) {
-                getPost(postId)
-                postId++
+                for(let i = 0; i < 6; i++) {
+                    getPost(postId)
+                    postId++
+                }
             }
-        },100)
-
-        document.addEventListener("scroll", endOfPage)
+        },250)
     </script>
 </body>
 </html>
