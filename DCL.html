@@ -36,7 +36,7 @@
         let MainContent = document.getElementById("MainContentDCL")
 
         function endOfPage() {
-            return window.pageYOffset+window.innerHeight == document.body.scrollHeight
+            return round(window.pageYOffset+window.innerHeight) == round(document.body.scrollHeight)
         }
 
         function addPost(data) {
